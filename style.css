@@ -1,0 +1,151 @@
+@font-face { font-family: 'WOFF Maj-Light'; src: url('fonts/Maj-Light.woff'); }
+@font-face { font-family: 'WOFF Maj-Regular'; src: url('fonts/Maj-Regular.woff'); }
+@font-face { font-family: 'WOFF Maj-Bold'; src: url('fonts/Maj-Bold.woff'); }
+@font-face { font-family: 'WOFF2 Maj-Light'; src: url('fonts/Maj-Light.woff2'); }
+@font-face { font-family: 'WOFF2 Maj-Regular'; src: url('fonts/Maj-Regular.woff2'); }
+@font-face { font-family: 'WOFF2 Maj-Bold'; src: url('fonts/Maj-Bold.woff2'); }
+@font-face { font-family: 'EOT Maj-Light'; src: url('fonts/Maj-Light.eot'); }
+@font-face { font-family: 'EOT Maj-Regular'; src: url('fonts/Maj-Regular.eot'); }
+@font-face { font-family: 'EOT Maj-Bold'; src: url('fonts/Maj-Bold.eot'); }
+
+body {
+  font-family: "WOFF Maj-Light";
+  font-feature-settings: "kern" on, "liga" on, "calt" on;
+  -moz-font-feature-settings: "kern" on, "liga" on, "calt" on;
+  -webkit-font-feature-settings: "kern" on, "liga" on, "calt" on;
+  -ms-font-feature-settings: "kern" on, "liga" on, "calt" on;
+  -o-font-feature-settings: "kern" on, "liga" on, "calt" on;
+  margin: 0;
+  color: #444;
+  font-size: 120%;
+  line-height: 1.4em;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/*
+red: #D0004D;
+green: #159F6B;
+yellow: #FFCF20;
+*/
+
+p {margin: 0 0 1em 0}
+
+p:last-of-type {
+  margin: 0;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+h1,h2,h3,h4,h5,h6 {
+  margin: 0;
+  font-size: 1em;
+  font-weight: normal;
+  line-height: inherit;
+}
+
+.map {
+  background-color: #8BD0E4;
+}
+
+.layout {
+  display: flex;
+}
+
+.layout__main {
+  flex: 1;
+}
+
+.logo {
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.layout__map {
+  flex: 1;
+}
+
+.map svg {
+  display: block;
+  max-width: 500px;
+  margin: 0 auto;
+}
+.kgroup {
+  transition: fill .5s;
+}
+.kgroup:hover {
+  fill: #FFCF20;
+}
+
+.popup {
+  background-color: #444;
+  color: #fff;
+  padding: 20px 20px 0 20px;
+  height: 220px;
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.popup::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 0;
+  height: 0;
+  margin-right: -40px;
+  border-top: 110px solid transparent;
+  border-bottom: 110px solid transparent;
+
+  border-left: 40px solid #444;
+}
+
+.popup__placeholder {
+  opacity: .5;
+  font-size: 150%;
+  line-height: 1.4em;
+  text-align: center;
+  margin-top: 40px;
+}
+
+.popup__name {
+  text-align: center;
+  font-size: 150%;
+  opacity: .5;
+  margin-bottom: 20px;
+}
+
+.popup__stat {
+  text-align: center;
+  display: inline-block;
+  width: 49.5%;
+  margin-bottom: 20px;
+}
+
+.popup__number {
+  font-size: 200%;
+  font-family: 'WOFF Maj-Bold';
+}
+
+.read {
+  padding: 20px;
+}
+
+.read__title {
+  font-family: 'WOFF Maj-Bold';
+  font-size: 200%;
+  margin-bottom: .8em;
+  text-transform: uppercase;
+}
+
+.read__lead {
+  font-size: 150%;
+  color: #aaa;
+  line-height: 1.3em;
+  margin-bottom: 20px;
+}
