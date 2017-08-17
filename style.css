@@ -1,15 +1,17 @@
-@font-face { font-family: 'WOFF Maj-Light'; src: url('fonts/Maj-Light.woff'); }
-@font-face { font-family: 'WOFF Maj-Regular'; src: url('fonts/Maj-Regular.woff'); }
-@font-face { font-family: 'WOFF Maj-Bold'; src: url('fonts/Maj-Bold.woff'); }
-@font-face { font-family: 'WOFF2 Maj-Light'; src: url('fonts/Maj-Light.woff2'); }
-@font-face { font-family: 'WOFF2 Maj-Regular'; src: url('fonts/Maj-Regular.woff2'); }
-@font-face { font-family: 'WOFF2 Maj-Bold'; src: url('fonts/Maj-Bold.woff2'); }
-@font-face { font-family: 'EOT Maj-Light'; src: url('fonts/Maj-Light.eot'); }
-@font-face { font-family: 'EOT Maj-Regular'; src: url('fonts/Maj-Regular.eot'); }
-@font-face { font-family: 'EOT Maj-Bold'; src: url('fonts/Maj-Bold.eot'); }
+@font-face {
+  font-family: 'Maj-Light';
+  src:  url('fonts/Maj-Light.woff2') format('woff2'),
+        url('fonts/Maj-Light.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Maj-Bold';
+  src:  url('fonts/Maj-Bold.woff2') format('woff2'),
+        url('fonts/Maj-Bold.woff') format('woff');
+}
 
 body {
-  font-family: "WOFF Maj-Light";
+  font-family: "Maj-Light";
   font-feature-settings: "kern" on, "liga" on, "calt" on;
   -moz-font-feature-settings: "kern" on, "liga" on, "calt" on;
   -webkit-font-feature-settings: "kern" on, "liga" on, "calt" on;
@@ -129,7 +131,7 @@ h1,h2,h3,h4,h5,h6 {
 
 .popup__number {
   font-size: 200%;
-  font-family: 'WOFF Maj-Bold';
+  font-family: 'Maj-Bold';
 }
 
 .read {
@@ -137,7 +139,7 @@ h1,h2,h3,h4,h5,h6 {
 }
 
 .read__title {
-  font-family: 'WOFF Maj-Bold';
+  font-family: 'Maj-Bold';
   font-size: 200%;
   margin-bottom: .8em;
   text-transform: uppercase;
