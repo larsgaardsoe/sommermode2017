@@ -52,31 +52,58 @@ h1,h2,h3,h4,h5,h6 {
 }
 
 .map {
-  background-color: #8BD0E4;
+  padding-bottom: 40px;
 }
 
-.layout {
-  display: flex;
-}
-
-.layout__main {
-  flex: 1;
-}
-
-.logo {
-  width: 100%;
+.map__logo {
+  position: absolute;
+  bottom: 0px;
+  left: 15px;
+  width: 300px;
   margin-bottom: 10px;
 }
 
-.layout__map {
-  flex: 1;
+.map__info {
+  position: absolute;
+  font-size: 120%;
+  background: #444;
+  color: #fff;
+  padding: 5px 10px 7px 10px;
+  z-index: 20;
+  display: none;
 }
 
 .map svg {
   display: block;
-  max-width: 500px;
+  height: 600px;
   margin: 0 auto;
 }
+
+.header {
+  display: flex;
+  align-items: stretch;
+}
+
+.header__main {
+  flex: 1;
+  background-color: #D0004D;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+
+
+.header__map {
+  flex: 2;
+  background-color: #8BD0E4;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+
 .kgroup {
   transition: fill .5s;
 }
@@ -84,27 +111,46 @@ h1,h2,h3,h4,h5,h6 {
   fill: #FFCF20;
 }
 
+.intro {
+  padding: 20px;
+  color: #fff;
+}
+
+
+
+.intro__title {
+  font-family: 'Maj-Bold';
+  font-size: 200%;
+  margin-bottom: .8em;
+  line-height: 1.2em;
+  text-transform: uppercase;
+}
+
+.intro__lead {
+  font-size: 150%;
+  opacity: .8;
+  line-height: 1.3em;
+  margin-bottom: 20px;
+}
+
 .popup {
   background-color: #444;
   color: #fff;
-  padding: 20px 20px 0 20px;
-  height: 220px;
   position: relative;
-  margin-bottom: 20px;
 }
 
 .popup::after {
   content: '';
   position: absolute;
-  top: 0;
+  top: 20px;
   right: 0;
   width: 0;
   height: 0;
-  margin-right: -40px;
-  border-top: 110px solid transparent;
-  border-bottom: 110px solid transparent;
-
-  border-left: 40px solid #444;
+  margin-right: -20px;
+  border-top: 20px solid transparent;
+  border-bottom: 20px solid transparent;
+  border-left: 20px solid #444;
+  z-index: 10;
 }
 
 .popup__placeholder {
@@ -112,30 +158,46 @@ h1,h2,h3,h4,h5,h6 {
   font-size: 150%;
   line-height: 1.4em;
   text-align: center;
-  margin-top: 40px;
+  margin: 60px 20px;
 }
 
 .popup__name {
   text-align: center;
-  font-size: 150%;
+  font-size: 120%;
+
   opacity: .5;
-  margin-bottom: 20px;
+  padding: 20px;
+}
+
+.popup h2 {
+  opacity: .5;
+  margin-bottom: 5px;
+}
+
+.popup__stats {
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .popup__stat {
   text-align: center;
-  display: inline-block;
-  width: 49.5%;
-  margin-bottom: 20px;
+  flex: 1 1 50%;
+}
+
+.popup__stat--hospitals {
+  background-color: #666;
 }
 
 .popup__number {
   font-size: 200%;
   font-family: 'Maj-Bold';
+  padding-bottom:20px;
 }
 
 .read {
   padding: 20px;
+  max-width: 900px;
+  margin: 0 auto;
 }
 
 .read__title {

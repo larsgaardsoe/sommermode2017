@@ -1,103 +1,103 @@
 // Generic .js-toggle using data-element and data-group. Use .js-active-default if needed in responsive design
-var kommuner = {
-  "101": { "navn":"København", "Tilskud":990, "Folkeskole":450, "Daginstitutioner":1111, "Handicap":263, "Aeldre":450},
-  "147": { "navn":"Frederiksberg", "Tilskud":174, "Folkeskole":79, "Daginstitutioner":195, "Handicap":46, "Aeldre":79},
-  "151": { "navn":"Ballerup", "Tilskud":80, "Folkeskole":36, "Daginstitutioner":89, "Handicap":21, "Aeldre":36},
-  "153": { "navn":"Brøndby", "Tilskud":59, "Folkeskole":27, "Daginstitutioner":66, "Handicap":16, "Aeldre":27},
-  "155": { "navn":"Dragør", "Tilskud":23, "Folkeskole":11, "Daginstitutioner":26, "Handicap":6, "Aeldre":11},
-  "157": { "navn":"Gentofte", "Tilskud":124, "Folkeskole":57, "Daginstitutioner":140, "Handicap":33, "Aeldre":57},
-  "159": { "navn":"Gladsaxe", "Tilskud":112, "Folkeskole":51, "Daginstitutioner":126, "Handicap":30, "Aeldre":51},
-  "161": { "navn":"Glostrup", "Tilskud":37, "Folkeskole":17, "Daginstitutioner":42, "Handicap":10, "Aeldre":17},
-  "163": { "navn":"Herlev", "Tilskud":47, "Folkeskole":21, "Daginstitutioner":53, "Handicap":13, "Aeldre":21},
-  "165": { "navn":"Albertslund", "Tilskud":46, "Folkeskole":21, "Daginstitutioner":52, "Handicap":12, "Aeldre":21},
-  "167": { "navn":"Hvidovre", "Tilskud":88, "Folkeskole":40, "Daginstitutioner":99, "Handicap":23, "Aeldre":40},
-  "169": { "navn":"Høje-Taastrup", "Tilskud":83, "Folkeskole":38, "Daginstitutioner":93, "Handicap":22, "Aeldre":38},
-  "173": { "navn":"Lyngby-Taarbæk", "Tilskud":91, "Folkeskole":42, "Daginstitutioner":102, "Handicap":24, "Aeldre":42},
-  "175": { "navn":"Rødovre", "Tilskud":63, "Folkeskole":29, "Daginstitutioner":71, "Handicap":17, "Aeldre":29},
-  "183": { "navn":"Ishøj", "Tilskud":37, "Folkeskole":17, "Daginstitutioner":42, "Handicap":10, "Aeldre":17},
-  "185": { "navn":"Tårnby", "Tilskud":71, "Folkeskole":32, "Daginstitutioner":80, "Handicap":19, "Aeldre":32},
-  "187": { "navn":"Vallensbæk", "Tilskud":26, "Folkeskole":12, "Daginstitutioner":29, "Handicap":7, "Aeldre":12},
-  "190": { "navn":"Furesø", "Tilskud":66, "Folkeskole":30, "Daginstitutioner":75, "Handicap":18, "Aeldre":30},
-  "201": { "navn":"Allerød", "Tilskud":41, "Folkeskole":19, "Daginstitutioner":46, "Handicap":11, "Aeldre":19},
-  "210": { "navn":"Fredensborg", "Tilskud":66, "Folkeskole":30, "Daginstitutioner":74, "Handicap":18, "Aeldre":30},
-  "217": { "navn":"Helsingør", "Tilskud":102, "Folkeskole":47, "Daginstitutioner":115, "Handicap":27, "Aeldre":47},
-  "219": { "navn":"Hillerød", "Tilskud":82, "Folkeskole":37, "Daginstitutioner":92, "Handicap":22, "Aeldre":37},
-  "223": { "navn":"Hørsholm", "Tilskud":41, "Folkeskole":19, "Daginstitutioner":46, "Handicap":11, "Aeldre":19},
-  "230": { "navn":"Rudersdal", "Tilskud":92, "Folkeskole":42, "Daginstitutioner":103, "Handicap":24, "Aeldre":42},
-  "240": { "navn":"Egedal", "Tilskud":71, "Folkeskole":32, "Daginstitutioner":79, "Handicap":19, "Aeldre":32},
-  "250": { "navn":"Frederikssund", "Tilskud":74, "Folkeskole":33, "Daginstitutioner":83, "Handicap":20, "Aeldre":33},
-  "260": { "navn":"Halsnæs", "Tilskud":51, "Folkeskole":23, "Daginstitutioner":57, "Handicap":14, "Aeldre":23},
-  "270": { "navn":"Gribskov", "Tilskud":67, "Folkeskole":31, "Daginstitutioner":76, "Handicap":18, "Aeldre":31},
-  "400": { "navn":"Bornholms kommune", "Tilskud":65, "Folkeskole":30, "Daginstitutioner":73, "Handicap":17, "Aeldre":30},
-  "253": { "navn":"Greve", "Tilskud":82, "Folkeskole":37, "Daginstitutioner":92, "Handicap":22, "Aeldre":37},
-  "259": { "navn":"Køge", "Tilskud":99, "Folkeskole":45, "Daginstitutioner":111, "Handicap":26, "Aeldre":45},
-  "265": { "navn":"Roskilde", "Tilskud":143, "Folkeskole":65, "Daginstitutioner":160, "Handicap":38, "Aeldre":65},
-  "269": { "navn":"Solrød", "Tilskud":36, "Folkeskole":16, "Daginstitutioner":40, "Handicap":10, "Aeldre":16},
-  "306": { "navn":"Odsherred", "Tilskud":54, "Folkeskole":24, "Daginstitutioner":60, "Handicap":14, "Aeldre":24},
-  "316": { "navn":"Holbæk", "Tilskud":115, "Folkeskole":52, "Daginstitutioner":129, "Handicap":30, "Aeldre":52},
-  "320": { "navn":"Faxe", "Tilskud":58, "Folkeskole":27, "Daginstitutioner":66, "Handicap":16, "Aeldre":27},
-  "326": { "navn":"Kalundborg", "Tilskud":80, "Folkeskole":36, "Daginstitutioner":90, "Handicap":21, "Aeldre":36},
-  "329": { "navn":"Ringsted", "Tilskud":56, "Folkeskole":26, "Daginstitutioner":63, "Handicap":15, "Aeldre":26},
-  "330": { "navn":"Slagelse", "Tilskud":128, "Folkeskole":58, "Daginstitutioner":144, "Handicap":34, "Aeldre":58},
-  "336": { "navn":"Stevns", "Tilskud":37, "Folkeskole":17, "Daginstitutioner":41, "Handicap":10, "Aeldre":17},
-  "340": { "navn":"Sorø", "Tilskud":48, "Folkeskole":22, "Daginstitutioner":54, "Handicap":13, "Aeldre":22},
-  "350": { "navn":"Lejre", "Tilskud":45, "Folkeskole":20, "Daginstitutioner":50, "Handicap":12, "Aeldre":20},
-  "360": { "navn":"Lolland", "Tilskud":69, "Folkeskole":32, "Daginstitutioner":78, "Handicap":18, "Aeldre":32},
-  "370": { "navn":"Næstved", "Tilskud":135, "Folkeskole":62, "Daginstitutioner":152, "Handicap":36, "Aeldre":61},
-  "376": { "navn":"Guldborgsund", "Tilskud":100, "Folkeskole":45, "Daginstitutioner":112, "Handicap":26, "Aeldre":45},
-  "390": { "navn":"Vordingborg", "Tilskud":75, "Folkeskole":34, "Daginstitutioner":84, "Handicap":20, "Aeldre":34},
-  "410": { "navn":"Middelfart", "Tilskud":62, "Folkeskole":28, "Daginstitutioner":70, "Handicap":17, "Aeldre":28},
-  "420": { "navn":"Assens", "Tilskud":68, "Folkeskole":31, "Daginstitutioner":76, "Handicap":18, "Aeldre":31},
-  "430": { "navn":"Faaborg-Midtfyn", "Tilskud":84, "Folkeskole":38, "Daginstitutioner":94, "Handicap":22, "Aeldre":38},
-  "440": { "navn":"Kerteminde", "Tilskud":39, "Folkeskole":18, "Daginstitutioner":44, "Handicap":10, "Aeldre":18},
-  "450": { "navn":"Nyborg", "Tilskud":52, "Folkeskole":24, "Daginstitutioner":59, "Handicap":14, "Aeldre":24},
-  "461": { "navn":"Odense", "Tilskud":330, "Folkeskole":150, "Daginstitutioner":371, "Handicap":88, "Aeldre":150},
-  "479": { "navn":"Svendborg", "Tilskud":96, "Folkeskole":43, "Daginstitutioner":107, "Handicap":25, "Aeldre":43},
-  "480": { "navn":"Nordfyn", "Tilskud":48, "Folkeskole":22, "Daginstitutioner":54, "Handicap":13, "Aeldre":22},
-  "482": { "navn":"Langeland", "Tilskud":21, "Folkeskole":9, "Daginstitutioner":23, "Handicap":5, "Aeldre":9},
-  "492": { "navn":"Ærø", "Tilskud":10, "Folkeskole":5, "Daginstitutioner":11, "Handicap":3, "Aeldre":5},
-  "510": { "navn":"Haderslev", "Tilskud":92, "Folkeskole":42, "Daginstitutioner":103, "Handicap":24, "Aeldre":42},
-  "530": { "navn":"Billund", "Tilskud":44, "Folkeskole":20, "Daginstitutioner":49, "Handicap":12, "Aeldre":20},
-  "540": { "navn":"Sønderborg", "Tilskud":122, "Folkeskole":56, "Daginstitutioner":137, "Handicap":32, "Aeldre":56},
-  "550": { "navn":"Tønder", "Tilskud":62, "Folkeskole":28, "Daginstitutioner":69, "Handicap":16, "Aeldre":28},
-  "561": { "navn":"Esbjerg", "Tilskud":191, "Folkeskole":87, "Daginstitutioner":214, "Handicap":51, "Aeldre":87},
-  "563": { "navn":"Fanø", "Tilskud":5, "Folkeskole":2, "Daginstitutioner":6, "Handicap":1, "Aeldre":2},
-  "573": { "navn":"Varde", "Tilskud":83, "Folkeskole":38, "Daginstitutioner":93, "Handicap":22, "Aeldre":38},
-  "575": { "navn":"Vejen", "Tilskud":71, "Folkeskole":32, "Daginstitutioner":79, "Handicap":19, "Aeldre":32},
-  "580": { "navn":"Aabenraa", "Tilskud":97, "Folkeskole":44, "Daginstitutioner":109, "Handicap":26, "Aeldre":44},
-  "607": { "navn":"Fredericia", "Tilskud":84, "Folkeskole":38, "Daginstitutioner":94, "Handicap":22, "Aeldre":38},
-  "621": { "navn":"Kolding", "Tilskud":152, "Folkeskole":69, "Daginstitutioner":170, "Handicap":40, "Aeldre":69},
-  "630": { "navn":"Vejle", "Tilskud":184, "Folkeskole":84, "Daginstitutioner":207, "Handicap":49, "Aeldre":84},
-  "615": { "navn":"Horsens", "Tilskud":146, "Folkeskole":66, "Daginstitutioner":164, "Handicap":39, "Aeldre":66},
-  "657": { "navn":"Herning", "Tilskud":145, "Folkeskole":66, "Daginstitutioner":162, "Handicap":38, "Aeldre":66},
-  "661": { "navn":"Holstebro", "Tilskud":95, "Folkeskole":43, "Daginstitutioner":107, "Handicap":25, "Aeldre":43},
-  "665": { "navn":"Lemvig", "Tilskud":33, "Folkeskole":15, "Daginstitutioner":37, "Handicap":9, "Aeldre":15},
-  "671": { "navn":"Struer", "Tilskud":35, "Folkeskole":16, "Daginstitutioner":39, "Handicap":9, "Aeldre":16},
-  "706": { "navn":"Syddjurs", "Tilskud":69, "Folkeskole":31, "Daginstitutioner":77, "Handicap":18, "Aeldre":31},
-  "707": { "navn":"Norddjurs", "Tilskud":63, "Folkeskole":28, "Daginstitutioner":70, "Handicap":17, "Aeldre":28},
-  "710": { "navn":"Favrskov", "Tilskud":78, "Folkeskole":36, "Daginstitutioner":88, "Handicap":21, "Aeldre":36},
-  "727": { "navn":"Odder", "Tilskud":37, "Folkeskole":17, "Daginstitutioner":41, "Handicap":10, "Aeldre":17},
-  "730": { "navn":"Randers", "Tilskud":161, "Folkeskole":73, "Daginstitutioner":181, "Handicap":43, "Aeldre":73},
-  "740": { "navn":"Silkeborg", "Tilskud":150, "Folkeskole":68, "Daginstitutioner":168, "Handicap":40, "Aeldre":68},
-  "741": { "navn":"Samsø", "Tilskud":6, "Folkeskole":3, "Daginstitutioner":7, "Handicap":2, "Aeldre":3},
-  "746": { "navn":"Skanderborg", "Tilskud":98, "Folkeskole":45, "Daginstitutioner":110, "Handicap":26, "Aeldre":45},
-  "751": { "navn":"Aarhus", "Tilskud":550, "Folkeskole":250, "Daginstitutioner":617, "Handicap":146, "Aeldre":250},
-  "756": { "navn":"Ikast-Brande", "Tilskud":67, "Folkeskole":31, "Daginstitutioner":75, "Handicap":18, "Aeldre":31},
-  "760": { "navn":"Ringkøbing-Skjern", "Tilskud":94, "Folkeskole":43, "Daginstitutioner":105, "Handicap":25, "Aeldre":43},
-  "766": { "navn":"Hedensted", "Tilskud":76, "Folkeskole":35, "Daginstitutioner":85, "Handicap":20, "Aeldre":34},
-  "779": { "navn":"Skive", "Tilskud":76, "Folkeskole":35, "Daginstitutioner":86, "Handicap":20, "Aeldre":35},
-  "791": { "navn":"Viborg", "Tilskud":158, "Folkeskole":72, "Daginstitutioner":177, "Handicap":42, "Aeldre":72},
-  "773": { "navn":"Morsø", "Tilskud":34, "Folkeskole":15, "Daginstitutioner":38, "Handicap":9, "Aeldre":15},
-  "787": { "navn":"Thisted", "Tilskud":72, "Folkeskole":33, "Daginstitutioner":81, "Handicap":19, "Aeldre":33},
-  "810": { "navn":"Brønderslev", "Tilskud":59, "Folkeskole":27, "Daginstitutioner":67, "Handicap":16, "Aeldre":27},
-  "813": { "navn":"Frederikshavn", "Tilskud":99, "Folkeskole":45, "Daginstitutioner":111, "Handicap":26, "Aeldre":45},
-  "820": { "navn":"Vesthimmerland", "Tilskud":61, "Folkeskole":28, "Daginstitutioner":69, "Handicap":16, "Aeldre":28},
-  "825": { "navn":"Læsø", "Tilskud":3, "Folkeskole":1, "Daginstitutioner":3, "Handicap":1, "Aeldre":1},
-  "840": { "navn":"Rebild", "Tilskud":48, "Folkeskole":22, "Daginstitutioner":54, "Handicap":13, "Aeldre":22},
-  "846": { "navn":"Mariagerfjord", "Tilskud":69, "Folkeskole":31, "Daginstitutioner":77, "Handicap":18, "Aeldre":31},
-  "849": { "navn":"Jammerbugt", "Tilskud":63, "Folkeskole":29, "Daginstitutioner":71, "Handicap":17, "Aeldre":29},
-  "851": { "navn":"Aalborg", "Tilskud":349, "Folkeskole":159, "Daginstitutioner":392, "Handicap":93, "Aeldre":159},
-  "860": { "navn":"Hjørring", "Tilskud":107, "Folkeskole":49, "Daginstitutioner":121, "Handicap":28, "Aeldre":49}
+var data = {
+  "101": { "name":"Københavns", "amount":990, "total":2471, "school":450, "daycare":1111, "disability":263, "elder":450, "health":197, "region":"Region Hovedstaden", "hospitals":1229},
+  "147": { "name":"Frederiksberg ", "amount":174, "total":433, "school":79, "daycare":195, "disability":46, "elder":79, "health":35, "region":"Region Hovedstaden", "hospitals":1229},
+  "151": { "name":"Ballerup ", "amount":80, "total":199, "school":36, "daycare":89, "disability":21, "elder":36, "health":16, "region":"Region Hovedstaden", "hospitals":1229},
+  "153": { "name":"Brøndby ", "amount":59, "total":146, "school":27, "daycare":66, "disability":16, "elder":27, "health":12, "region":"Region Hovedstaden", "hospitals":1229},
+  "155": { "name":"Dragør ", "amount":23, "total":59, "school":11, "daycare":26, "disability":6, "elder":11, "health":5, "region":"Region Hovedstaden", "hospitals":1229},
+  "157": { "name":"Gentofte ", "amount":124, "total":311, "school":57, "daycare":140, "disability":33, "elder":57, "health":25, "region":"Region Hovedstaden", "hospitals":1229},
+  "159": { "name":"Gladsaxe ", "amount":112, "total":280, "school":51, "daycare":126, "disability":30, "elder":51, "health":22, "region":"Region Hovedstaden", "hospitals":1229},
+  "161": { "name":"Glostrup ", "amount":37, "total":92, "school":17, "daycare":42, "disability":10, "elder":17, "health":7, "region":"Region Hovedstaden", "hospitals":1229},
+  "163": { "name":"Herlev ", "amount":47, "total":118, "school":21, "daycare":53, "disability":13, "elder":21, "health":9, "region":"Region Hovedstaden", "hospitals":1229},
+  "165": { "name":"Albertslund ", "amount":46, "total":115, "school":21, "daycare":52, "disability":12, "elder":21, "health":9, "region":"Region Hovedstaden", "hospitals":1229},
+  "167": { "name":"Hvidovre ", "amount":88, "total":219, "school":40, "daycare":99, "disability":23, "elder":40, "health":17, "region":"Region Hovedstaden", "hospitals":1229},
+  "169": { "name":"Høje-Taastrup ", "amount":83, "total":207, "school":38, "daycare":93, "disability":22, "elder":38, "health":16, "region":"Region Hovedstaden", "hospitals":1229},
+  "173": { "name":"Lyngby-Taarbæk ", "amount":91, "total":228, "school":42, "daycare":102, "disability":24, "elder":42, "health":18, "region":"Region Hovedstaden", "hospitals":1229},
+  "175": { "name":"Rødovre ", "amount":63, "total":157, "school":29, "daycare":71, "disability":17, "elder":29, "health":13, "region":"Region Hovedstaden", "hospitals":1229},
+  "183": { "name":"Ishøj ", "amount":37, "total":93, "school":17, "daycare":42, "disability":10, "elder":17, "health":7, "region":"Region Hovedstaden", "hospitals":1229},
+  "185": { "name":"Tårnby ", "amount":71, "total":178, "school":32, "daycare":80, "disability":19, "elder":32, "health":14, "region":"Region Hovedstaden", "hospitals":1229},
+  "187": { "name":"Vallensbæk ", "amount":26, "total":64, "school":12, "daycare":29, "disability":7, "elder":12, "health":5, "region":"Region Hovedstaden", "hospitals":1229},
+  "190": { "name":"Furesø ", "amount":66, "total":166, "school":30, "daycare":75, "disability":18, "elder":30, "health":13, "region":"Region Hovedstaden", "hospitals":1229},
+  "201": { "name":"Allerød ", "amount":41, "total":102, "school":19, "daycare":46, "disability":11, "elder":19, "health":8, "region":"Region Hovedstaden", "hospitals":1229},
+  "210": { "name":"Fredensborg ", "amount":66, "total":165, "school":30, "daycare":74, "disability":18, "elder":30, "health":13, "region":"Region Hovedstaden", "hospitals":1229},
+  "217": { "name":"Helsingør ", "amount":102, "total":256, "school":47, "daycare":115, "disability":27, "elder":47, "health":20, "region":"Region Hovedstaden", "hospitals":1229},
+  "219": { "name":"Hillerød ", "amount":82, "total":204, "school":37, "daycare":92, "disability":22, "elder":37, "health":16, "region":"Region Hovedstaden", "hospitals":1229},
+  "223": { "name":"Hørsholm ", "amount":41, "total":103, "school":19, "daycare":46, "disability":11, "elder":19, "health":8, "region":"Region Hovedstaden", "hospitals":1229},
+  "230": { "name":"Rudersdal ", "amount":92, "total":229, "school":42, "daycare":103, "disability":24, "elder":42, "health":18, "region":"Region Hovedstaden", "hospitals":1229},
+  "240": { "name":"Egedal ", "amount":71, "total":176, "school":32, "daycare":79, "disability":19, "elder":32, "health":14, "region":"Region Hovedstaden", "hospitals":1229},
+  "250": { "name":"Frederikssund ", "amount":74, "total":184, "school":33, "daycare":83, "disability":20, "elder":33, "health":15, "region":"Region Hovedstaden", "hospitals":1229},
+  "260": { "name":"Halsnæs ", "amount":51, "total":128, "school":23, "daycare":57, "disability":14, "elder":23, "health":10, "region":"Region Hovedstaden", "hospitals":1229},
+  "270": { "name":"Gribskov ", "amount":67, "total":168, "school":31, "daycare":76, "disability":18, "elder":31, "health":13, "region":"Region Hovedstaden", "hospitals":1229},
+  "400": { "name":"Bornholms ", "amount":65, "total":162, "school":30, "daycare":73, "disability":17, "elder":30, "health":13, "region":"Region Hovedstaden", "hospitals":1229},
+  "253": { "name":"Greve ", "amount":82, "total":204, "school":37, "daycare":92, "disability":22, "elder":37, "health":16, "region":"Region Sjælland", "hospitals":609},
+  "259": { "name":"Køge ", "amount":99, "total":248, "school":45, "daycare":111, "disability":26, "elder":45, "health":20, "region":"Region Sjælland", "hospitals":609},
+  "265": { "name":"Roskilde ", "amount":143, "total":356, "school":65, "daycare":160, "disability":38, "elder":65, "health":28, "region":"Region Sjælland", "hospitals":609},
+  "269": { "name":"Solrød ", "amount":36, "total":90, "school":16, "daycare":40, "disability":10, "elder":16, "health":7, "region":"Region Sjælland", "hospitals":609},
+  "306": { "name":"Odsherred ", "amount":54, "total":134, "school":24, "daycare":60, "disability":14, "elder":24, "health":11, "region":"Region Sjælland", "hospitals":609},
+  "316": { "name":"Holbæk ", "amount":115, "total":286, "school":52, "daycare":129, "disability":30, "elder":52, "health":23, "region":"Region Sjælland", "hospitals":609},
+  "320": { "name":"Faxe ", "amount":58, "total":146, "school":27, "daycare":66, "disability":16, "elder":27, "health":12, "region":"Region Sjælland", "hospitals":609},
+  "326": { "name":"Kalundborg ", "amount":80, "total":200, "school":36, "daycare":90, "disability":21, "elder":36, "health":16, "region":"Region Sjælland", "hospitals":609},
+  "329": { "name":"Ringsted ", "amount":56, "total":141, "school":26, "daycare":63, "disability":15, "elder":26, "health":11, "region":"Region Sjælland", "hospitals":609},
+  "330": { "name":"Slagelse ", "amount":128, "total":320, "school":58, "daycare":144, "disability":34, "elder":58, "health":25, "region":"Region Sjælland", "hospitals":609},
+  "336": { "name":"Stevns ", "amount":37, "total":91, "school":17, "daycare":41, "disability":10, "elder":17, "health":7, "region":"Region Sjælland", "hospitals":609},
+  "340": { "name":"Sorø ", "amount":48, "total":121, "school":22, "daycare":54, "disability":13, "elder":22, "health":10, "region":"Region Sjælland", "hospitals":609},
+  "350": { "name":"Lejre ", "amount":45, "total":112, "school":20, "daycare":50, "disability":12, "elder":20, "health":9, "region":"Region Sjælland", "hospitals":609},
+  "360": { "name":"Lolland ", "amount":69, "total":173, "school":32, "daycare":78, "disability":18, "elder":32, "health":14, "region":"Region Sjælland", "hospitals":609},
+  "370": { "name":"Næstved ", "amount":135, "total":338, "school":62, "daycare":152, "disability":36, "elder":61, "health":27, "region":"Region Sjælland", "hospitals":609},
+  "376": { "name":"Guldborgsund ", "amount":100, "total":249, "school":45, "daycare":112, "disability":26, "elder":45, "health":20, "region":"Region Sjælland", "hospitals":609},
+  "390": { "name":"Vordingborg ", "amount":75, "total":187, "school":34, "daycare":84, "disability":20, "elder":34, "health":15, "region":"Region Sjælland", "hospitals":609},
+  "410": { "name":"Middelfart ", "amount":62, "total":156, "school":28, "daycare":70, "disability":17, "elder":28, "health":12, "region":"Region Syddanmark", "hospitals":863},
+  "420": { "name":"Assens ", "amount":68, "total":169, "school":31, "daycare":76, "disability":18, "elder":31, "health":13, "region":"Region Syddanmark", "hospitals":863},
+  "430": { "name":"Faaborg-Midtfyn ", "amount":84, "total":209, "school":38, "daycare":94, "disability":22, "elder":38, "health":17, "region":"Region Syddanmark", "hospitals":863},
+  "440": { "name":"Kerteminde ", "amount":39, "total":98, "school":18, "daycare":44, "disability":10, "elder":18, "health":8, "region":"Region Syddanmark", "hospitals":863},
+  "450": { "name":"Nyborg ", "amount":52, "total":131, "school":24, "daycare":59, "disability":14, "elder":24, "health":10, "region":"Region Syddanmark", "hospitals":863},
+  "461": { "name":"Odense ", "amount":330, "total":824, "school":150, "daycare":371, "disability":88, "elder":150, "health":66, "region":"Region Syddanmark", "hospitals":863},
+  "479": { "name":"Svendborg ", "amount":96, "total":239, "school":43, "daycare":107, "disability":25, "elder":43, "health":19, "region":"Region Syddanmark", "hospitals":863},
+  "480": { "name":"Nordfyn ", "amount":48, "total":120, "school":22, "daycare":54, "disability":13, "elder":22, "health":10, "region":"Region Syddanmark", "hospitals":863},
+  "482": { "name":"Langeland ", "amount":21, "total":51, "school":9, "daycare":23, "disability":5, "elder":9, "health":4, "region":"Region Syddanmark", "hospitals":863},
+  "492": { "name":"Ærø ", "amount":10, "total":26, "school":5, "daycare":11, "disability":3, "elder":5, "health":2, "region":"Region Syddanmark", "hospitals":863},
+  "510": { "name":"Haderslev ", "amount":92, "total":230, "school":42, "daycare":103, "disability":24, "elder":42, "health":18, "region":"Region Syddanmark", "hospitals":863},
+  "530": { "name":"Billund ", "amount":44, "total":109, "school":20, "daycare":49, "disability":12, "elder":20, "health":9, "region":"Region Syddanmark", "hospitals":863},
+  "540": { "name":"Sønderborg ", "amount":122, "total":306, "school":56, "daycare":137, "disability":32, "elder":56, "health":24, "region":"Region Syddanmark", "hospitals":863},
+  "550": { "name":"Tønder ", "amount":62, "total":155, "school":28, "daycare":69, "disability":16, "elder":28, "health":12, "region":"Region Syddanmark", "hospitals":863},
+  "561": { "name":"Esbjerg ", "amount":191, "total":477, "school":87, "daycare":214, "disability":51, "elder":87, "health":38, "region":"Region Syddanmark", "hospitals":863},
+  "563": { "name":"Fanø ", "amount":5, "total":14, "school":2, "daycare":6, "disability":1, "elder":2, "health":1, "region":"Region Syddanmark", "hospitals":863},
+  "573": { "name":"Varde ", "amount":83, "total":207, "school":38, "daycare":93, "disability":22, "elder":38, "health":16, "region":"Region Syddanmark", "hospitals":863},
+  "575": { "name":"Vejen ", "amount":71, "total":176, "school":32, "daycare":79, "disability":19, "elder":32, "health":14, "region":"Region Syddanmark", "hospitals":863},
+  "580": { "name":"Aabenraa ", "amount":97, "total":242, "school":44, "daycare":109, "disability":26, "elder":44, "health":19, "region":"Region Syddanmark", "hospitals":863},
+  "607": { "name":"Fredericia ", "amount":84, "total":209, "school":38, "daycare":94, "disability":22, "elder":38, "health":17, "region":"Region Syddanmark", "hospitals":863},
+  "621": { "name":"Kolding ", "amount":152, "total":378, "school":69, "daycare":170, "disability":40, "elder":69, "health":30, "region":"Region Syddanmark", "hospitals":863},
+  "630": { "name":"Vejle ", "amount":184, "total":460, "school":84, "daycare":207, "disability":49, "elder":84, "health":37, "region":"Region Syddanmark", "hospitals":863},
+  "615": { "name":"Horsens ", "amount":146, "total":364, "school":66, "daycare":164, "disability":39, "elder":66, "health":29, "region":"Region Midtjylland", "hospitals":882},
+  "657": { "name":"Herning ", "amount":145, "total":361, "school":66, "daycare":162, "disability":38, "elder":66, "health":29, "region":"Region Midtjylland", "hospitals":882},
+  "661": { "name":"Holstebro ", "amount":95, "total":237, "school":43, "daycare":107, "disability":25, "elder":43, "health":19, "region":"Region Midtjylland", "hospitals":882},
+  "665": { "name":"Lemvig ", "amount":33, "total":83, "school":15, "daycare":37, "disability":9, "elder":15, "health":7, "region":"Region Midtjylland", "hospitals":882},
+  "671": { "name":"Struer ", "amount":35, "total":88, "school":16, "daycare":39, "disability":9, "elder":16, "health":7, "region":"Region Midtjylland", "hospitals":882},
+  "706": { "name":"Syddjurs ", "amount":69, "total":172, "school":31, "daycare":77, "disability":18, "elder":31, "health":14, "region":"Region Midtjylland", "hospitals":882},
+  "707": { "name":"Norddjurs ", "amount":63, "total":156, "school":28, "daycare":70, "disability":17, "elder":28, "health":12, "region":"Region Midtjylland", "hospitals":882},
+  "710": { "name":"Favrskov ", "amount":78, "total":196, "school":36, "daycare":88, "disability":21, "elder":36, "health":16, "region":"Region Midtjylland", "hospitals":882},
+  "727": { "name":"Odder ", "amount":37, "total":91, "school":17, "daycare":41, "disability":10, "elder":17, "health":7, "region":"Region Midtjylland", "hospitals":882},
+  "730": { "name":"Randers ", "amount":161, "total":403, "school":73, "daycare":181, "disability":43, "elder":73, "health":32, "region":"Region Midtjylland", "hospitals":882},
+  "740": { "name":"Silkeborg ", "amount":150, "total":374, "school":68, "daycare":168, "disability":40, "elder":68, "health":30, "region":"Region Midtjylland", "hospitals":882},
+  "741": { "name":"Samsø ", "amount":6, "total":15, "school":3, "daycare":7, "disability":2, "elder":3, "health":1, "region":"Region Midtjylland", "hospitals":882},
+  "746": { "name":"Skanderborg ", "amount":98, "total":244, "school":45, "daycare":110, "disability":26, "elder":45, "health":19, "region":"Region Midtjylland", "hospitals":882},
+  "751": { "name":"Aarhus ", "amount":550, "total":1372, "school":250, "daycare":617, "disability":146, "elder":250, "health":109, "region":"Region Midtjylland", "hospitals":882},
+  "756": { "name":"Ikast-Brande ", "amount":67, "total":168, "school":31, "daycare":75, "disability":18, "elder":31, "health":13, "region":"Region Midtjylland", "hospitals":882},
+  "760": { "name":"Ringkøbing-Skjern ", "amount":94, "total":234, "school":43, "daycare":105, "disability":25, "elder":43, "health":19, "region":"Region Midtjylland", "hospitals":882},
+  "766": { "name":"Hedensted ", "amount":76, "total":189, "school":35, "daycare":85, "disability":20, "elder":34, "health":15, "region":"Region Midtjylland", "hospitals":882},
+  "779": { "name":"Skive ", "amount":76, "total":191, "school":35, "daycare":86, "disability":20, "elder":35, "health":15, "region":"Region Midtjylland", "hospitals":882},
+  "791": { "name":"Viborg ", "amount":158, "total":394, "school":72, "daycare":177, "disability":42, "elder":72, "health":31, "region":"Region Midtjylland", "hospitals":882},
+  "773": { "name":"Morsø ", "amount":34, "total":84, "school":15, "daycare":38, "disability":9, "elder":15, "health":7, "region":"Region Nordjylland", "hospitals":417},
+  "787": { "name":"Thisted ", "amount":72, "total":180, "school":33, "daycare":81, "disability":19, "elder":33, "health":14, "region":"Region Nordjylland", "hospitals":417},
+  "810": { "name":"Brønderslev ", "amount":59, "total":148, "school":27, "daycare":67, "disability":16, "elder":27, "health":12, "region":"Region Nordjylland", "hospitals":417},
+  "813": { "name":"Frederikshavn ", "amount":99, "total":247, "school":45, "daycare":111, "disability":26, "elder":45, "health":20, "region":"Region Nordjylland", "hospitals":417},
+  "820": { "name":"Vesthimmerland ", "amount":61, "total":152, "school":28, "daycare":69, "disability":16, "elder":28, "health":12, "region":"Region Nordjylland", "hospitals":417},
+  "825": { "name":"Læsø ", "amount":3, "total":7, "school":1, "daycare":3, "disability":1, "elder":1, "health":1, "region":"Region Nordjylland", "hospitals":417},
+  "840": { "name":"Rebild ", "amount":48, "total":120, "school":22, "daycare":54, "disability":13, "elder":22, "health":10, "region":"Region Nordjylland", "hospitals":417},
+  "846": { "name":"Mariagerfjord ", "amount":69, "total":172, "school":31, "daycare":77, "disability":18, "elder":31, "health":14, "region":"Region Nordjylland", "hospitals":417},
+  "849": { "name":"Jammerbugt ", "amount":63, "total":158, "school":29, "daycare":71, "disability":17, "elder":29, "health":13, "region":"Region Nordjylland", "hospitals":417},
+  "851": { "name":"Aalborg ", "amount":349, "total":872, "school":159, "daycare":392, "disability":93, "elder":159, "health":69, "region":"Region Nordjylland", "hospitals":417},
+  "860": { "name":"Hjørring ", "amount":107, "total":268, "school":49, "daycare":121, "disability":28, "elder":49, "health":21, "region":"Region Nordjylland", "hospitals":417}
 }
 
 function ready(event) {
@@ -126,11 +126,25 @@ function ready(event) {
       }
     }
   }
+  function displayName(e) {
+    // console.log(e);
+    var komId = parseInt(this.id.replace('k',''));
+    var currentKomm = data[komId];
+    var mapInfo = document.getElementById('map-info')
+    mapInfo.style.top = (e.pageY + 10) + 'px'
+    mapInfo.style.left = (e.pageX + 10) + 'px'
+    mapInfo.innerText = currentKomm.name
+    mapInfo.style.display = 'block'
+  }
 
-  function displayName() {
+  function removeName() {
+    document.getElementById('map-info').style.display = 'none'
+  }
+
+  function displayInfo() {
     //this.style.fill = "red"
     var komId = parseInt(this.id.replace('k',''));
-    var currentKomm = kommuner[komId];
+    var currentKomm = data[komId];
     var popupStats = document.getElementById('popup-stats');
     var popupPlaceholder = document.getElementById('popup-placeholder')
     var popupName = document.getElementById('popup-name');
@@ -138,20 +152,24 @@ function ready(event) {
     var popupDayCare = document.getElementById('popup-daycare');
     var popupDisability = document.getElementById('popup-disability');
     var popupElder = document.getElementById('popup-elder');
-    popupName.innerText = 'Ekstra ansatte i ' + currentKomm.navn;
-    popupSchool.innerText = currentKomm.Folkeskole
-    popupDayCare.innerText = currentKomm.Daginstitutioner
-    popupDisability.innerText = currentKomm.Handicap
-    popupElder.innerText = currentKomm.Aeldre
+    popupName.innerText = 'Ekstra ansatte i ' + currentKomm.name + 'kommune';
+    popupSchool.innerText = currentKomm.school
+    popupDayCare.innerText = currentKomm.daycare
+    popupDisability.innerText = currentKomm.disability
+    popupElder.innerText = currentKomm.elder
+    document.getElementById('popup-health').innerText = currentKomm.health
+    document.getElementById('popup-hospitals').innerText = currentKomm.hospitals
+
     popupPlaceholder.style.display = 'none';
-    popupStats.style.display = 'block';
+    popupStats.style.display = 'flex';
     // console.log();
   }
   var listJsToggle = document.getElementsByClassName('js-toggle');
   var listKommuner = document.getElementsByClassName('kgroup');
   addEventListenerList(listJsToggle, 'click', handleClick);
-  addEventListenerList(listKommuner, 'click', displayName);
-
+  addEventListenerList(listKommuner, 'click', displayInfo);
+  addEventListenerList(listKommuner, 'mouseover', displayName);
+  addEventListenerList(listKommuner, 'mouseout', removeName);
   // console.log(kommuner[101]);
   // clean up event binding
   window.removeEventListener('DOMContentLoaded', ready);
