@@ -79,9 +79,13 @@ h1,h2,h3,h4,h5,h6 {
   margin: 0 auto;
 }
 
-.header {
-  display: flex;
-  align-items: stretch;
+
+
+@media (min-width: 900px) {
+  .header {
+    display: flex;
+    align-items: stretch;
+  }
 }
 
 .header__main {
