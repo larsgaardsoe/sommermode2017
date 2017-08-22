@@ -208,6 +208,17 @@ h1,h2,h3,h4,h5,h6 {
   margin: 0 auto;
 }
 
+.read__icon {
+  display: block;
+  margin: 0 auto;
+  transition: opacity .5s;
+}
+
+.read__icon:hover {
+  opacity: .5;
+}
+
+
 .read__title {
   font-family: 'Maj-Bold';
   font-size: 200%;
@@ -218,7 +229,7 @@ h1,h2,h3,h4,h5,h6 {
 .read__subtitle {
   font-family: 'Maj-Bold';
   font-size: 150%;
-  margin-bottom: .8em;
+  margin: 40px 0 10px 0;
   text-transform: uppercase;
 }
 
@@ -226,7 +237,11 @@ h1,h2,h3,h4,h5,h6 {
   font-size: 150%;
   color: #aaa;
   line-height: 1.3em;
-  margin-bottom: 20px;
+  margin: 20px 0;
+}
+
+.read__body {
+  columns: 2 300px;
 }
 
 .note {
