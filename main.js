@@ -130,15 +130,15 @@ function ready(event) {
     // console.log(e);
     var komId = parseInt(this.id.replace('k',''));
     var currentKomm = data[komId];
-    var mapInfo = document.getElementById('map-info')
-    mapInfo.style.top = (e.pageY + 10) + 'px'
-    mapInfo.style.left = (e.pageX + 10) + 'px'
-    mapInfo.innerText = currentKomm.name
-    mapInfo.style.display = 'block'
+    var mapInfo = document.getElementById('map-info');
+    mapInfo.style.top = (e.pageY + 10) + 'px';
+    mapInfo.style.left = (e.pageX + 10) + 'px';
+    mapInfo.innerText = currentKomm.name + ' kommune';
+    mapInfo.style.display = 'block';
   }
 
   function removeName() {
-    document.getElementById('map-info').style.display = 'none'
+    document.getElementById('map-info').style.display = 'none';
   }
 
   function displayInfo() {
@@ -153,12 +153,12 @@ function ready(event) {
     var popupDisability = document.getElementById('popup-disability');
     var popupElder = document.getElementById('popup-elder');
     popupName.innerText = 'Ekstra ansatte i ' + currentKomm.name + 'kommune';
-    popupSchool.innerText = currentKomm.school
-    popupDayCare.innerText = currentKomm.daycare
-    popupDisability.innerText = currentKomm.disability
-    popupElder.innerText = currentKomm.elder
-    document.getElementById('popup-health').innerText = currentKomm.health
-    document.getElementById('popup-hospitals').innerText = currentKomm.hospitals
+    popupSchool.innerText = currentKomm.school;
+    popupDayCare.innerText = currentKomm.daycare;
+    popupDisability.innerText = currentKomm.disability;
+    popupElder.innerText = currentKomm.elder;
+    document.getElementById('popup-health').innerText = currentKomm.health;
+    document.getElementById('popup-hospitals').innerText = currentKomm.hospitals;
 
     popupPlaceholder.style.display = 'none';
     popupStats.style.display = 'flex';

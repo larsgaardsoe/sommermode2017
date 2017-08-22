@@ -33,6 +33,9 @@ green: #159F6B;
 yellow: #FFCF20;
 */
 
+a {
+  color: #D0004D;
+}
 p {margin: 0 0 1em 0}
 
 p:last-of-type {
@@ -131,9 +134,9 @@ h1,h2,h3,h4,h5,h6 {
 }
 
 .intro__lead {
-  font-size: 150%;
+  font-size: 130%;
   opacity: .8;
-  line-height: 1.3em;
+  line-height: 1.4em;
   margin-bottom: 20px;
 }
 
@@ -198,7 +201,8 @@ h1,h2,h3,h4,h5,h6 {
   padding-bottom:20px;
 }
 
-.read {
+.read,
+.note {
   padding: 20px;
   max-width: 900px;
   margin: 0 auto;
@@ -211,9 +215,49 @@ h1,h2,h3,h4,h5,h6 {
   text-transform: uppercase;
 }
 
+.read__subtitle {
+  font-family: 'Maj-Bold';
+  font-size: 150%;
+  margin-bottom: .8em;
+  text-transform: uppercase;
+}
+
 .read__lead {
   font-size: 150%;
   color: #aaa;
   line-height: 1.3em;
   margin-bottom: 20px;
+}
+
+.note {
+  background-color: #f6ccdb;
+}
+
+.note__layout {
+  display: flex;
+}
+
+.note__layout > div {
+  flex: 1;
+  margin-right: 20px;
+}
+
+.note__title {
+  font-family: 'Maj-Bold';
+  font-size: 200%;
+  margin: 0px 0 40px 0;
+  opacity: .5;
+  text-transform: uppercase;
+}
+
+.note__subtitle {
+  font-family: 'Maj-Bold';
+  font-size: 150%;
+  margin-bottom: .4em;
+  text-transform: uppercase;
+}
+
+.note__source {
+  opacity: .8;
+  font-size: 80%;
 }
